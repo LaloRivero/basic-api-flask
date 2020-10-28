@@ -6,7 +6,14 @@ import db_config as db
 
 app = create_app()
 
-@app.route('/api/top_songs/', methods=['GET'])
+@app.route('/test/')
+def test():
+    return jsonify({
+        "message": "API working ok"
+    })
+
+
+@app.route('/api/all_songs/', methods=['GET'])
 def show_songs():
     all_songs = dumps(list(db.db.top_songs.find()))
     return all_songs
