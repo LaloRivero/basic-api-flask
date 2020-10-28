@@ -50,6 +50,7 @@ def update_song(n_top):
 
     return jsonify({"status":200, "message": f"The song #{n_top} of the top was updated"})
 
+
 @app.route('/api/top_songs/del/<int:n_top>',methods=['DELETE'])
 def delete_song(n_top):
     if db.db.top_songs.find_one({'n_top':n_top}):
